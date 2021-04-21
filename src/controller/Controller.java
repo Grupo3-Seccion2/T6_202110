@@ -1,5 +1,8 @@
 package controller;
 
+import java.util.Scanner;
+
+import model.data_structures.ILista;
 import model.logic.Modelo;
 import view.View;
 
@@ -26,6 +29,34 @@ public class Controller {
 
 	public void run() 
 	{
+		Scanner lector = new Scanner(System.in);
+		boolean fin = false;
+		view.printMenu();
+		while( !fin )
+			{
+				int option = lector.nextInt();
+				switch(option)
+				{
+					case 1:
+						try
+						{
+							modelo.cargarDatosArbol();
+						}
+						catch(Exception e)
+						{
+							e.printStackTrace();
+						}
+						break;
+							
+					case 2:
+						view.printMessage("--------- \n Hasta pronto !! \n---------"); 
+						lector.close();
+						fin = true;
+						break;
+				
+				}
+			}
+		
 	}
 	
 }
